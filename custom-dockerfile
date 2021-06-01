@@ -1,0 +1,19 @@
+FROM registry.access.redhat.com/ubi8/ubi-minimal
+
+USER root
+
+
+RUN microdnf --setopt=tsflags=nodocs install -y java-11-openjdk-devel \
+            && microdnf clean all \
+            && rpm -q java-11-openjdk-devel
+            
+ENV \
+            JAVA_HOME="/usr/lib/jvm/java-11" \
+            JAVA_VENDOR="openjdk" \
+            JAVA_VERSION="11" \
+
+
+WORKDIR /app/
+
+
+USER 1000
