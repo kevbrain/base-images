@@ -2,8 +2,7 @@ FROM image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
 
 USER root
 
-RUN microdnf --setopt=tsflags=nodocs install -y maven \
-            && microdnf clean all 
+RUN yum install maven 
             
 RUN mkdir /app
 WORKDIR /app/
