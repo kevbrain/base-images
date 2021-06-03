@@ -2,7 +2,7 @@ FROM image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
 
 USER root
 
-RUN yum install maven 
+RUN yum -y install maven 
             
 RUN mkdir /app
 WORKDIR /app/
